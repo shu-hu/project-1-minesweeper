@@ -1,0 +1,27 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    margin-top: 50px;
+    text-align: center;
+}
+
+section.board {
+    display: grid;
+    grid-template-rows: repeat(var(--size), 12vmin);
+    grid-template-columns: repeat(var(--size), 12vmin);
+    grid-gap: 0vmin;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+div {
+    border: 3px groove blueviolet;
+    font-size: 7vmin;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+    background-color: lightgreen;
+}
