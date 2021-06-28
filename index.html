@@ -40,23 +40,22 @@
         </div>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Game Instruction</h5>
+                <h2 class="offcanvas-title" id="offcanvasExampleLabel">Game Instruction</h5>
                 <button id="btn-close-instruction" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <div>
-                    <ul>
-                        <li class="li-title">How to Start?</li>
-                        <li>Choose a level to start game, then you are able to click any square on the board.</li>
-                        <li class="li-title">What happend after click?</li>
-                        <li>If you click a square contains a bomb, you lose the game.</li>
-                        <li>If you click a square without bomb, then a number will display on the board.</li>
-                        <li>The number on the board represent how many bombs are adjacent to this square.</li> 
-                        <li>You are also able to right click a square to mark this square.</li>
-                        <li>The number of flags equals the total bombs in the board.</li>
-                        <li class="li-title">How to Win?</li>
-                        <li>To win the game you have to click all the squares with no bombs.</li>
-                    </ul>
+                <div style="text-align: left;">
+                    <h3 class="li-title">How to Start?</h3>
+                    <p>Choose a difficulty level to start a game.</p>
+                    <h3 class="li-title">How to Play?</h3>
+                    <p>You can click on any square to reveal it.</p>
+                    <p>If the square contains a bomb, you lose the game immdiately.</p>
+                    <p>If the square does not contain a bomb, then a number will display on top of the revealed square.</p>
+                    <p>The number on the square represents the number of bombs that are adjacent to this square.</p> 
+                    <p>You are also allowed to right click a unrevealed square to mark it as potentially dangerous.</p>
+                    <p>The number of available flags equals to the total number of bombs on the whole board.</p>
+                    <h3 class="li-title">How to Win?</h3>
+                    <p>To win the game, you have to click/reveal all safe squares that do not contain bombs.</p>
                 </div>
                 <div class="dropdown mt-3">
             </div>

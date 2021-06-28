@@ -34,7 +34,6 @@ switchThemeEl.addEventListener('click', changeTheme);
 
 /*-------------------------------- Functions --------------------------------*/
 function setMode(x) {
-    console.log("hello")
     if (x === 1) {
         boardWidth = 5;
         numBomb = 4;
@@ -124,7 +123,7 @@ function createBoard() {
                     // lose game
                     // console.log(`game over`)
                     isLose = true;
-                    showAllBombs(board);
+                    showAllBombs();
                     render();
                     // squareObj.element.style.backgroundColor = "yellow";
                 }
@@ -309,7 +308,7 @@ function isSpaceMode() {
     return bodyEl.classList.contains("space");
 }
 
-function changeTheme(){
+function changeTheme() {
     isDefultTheme = !isDefultTheme;
     bodyEl.classList.toggle("space");
     const flagImgs = bodyEl.querySelectorAll(".flag-img");
@@ -335,22 +334,24 @@ function changeTheme(){
         });
     }
 
-    board.forEach(row => {
-        row.forEach(squareObj => {
-            if(squareObj.isBomb && squareObj.isChecked) {
-                if (isSpaceMode()) {
-                    
-                    squareObj.element.style.backgroundColor = "red";
-                } else {
-                    
-                    squareObj.element.style.backgroundColor = "red";
+    if (board) {
+        board.forEach(row => {
+            row.forEach(squareObj => {
+                if(squareObj.isBomb && squareObj.isChecked) {
+                    if (isSpaceMode()) {
+                        
+                        squareObj.element.style.backgroundColor = "red";
+                    } else {
+                        
+                        squareObj.element.style.backgroundColor = "red";
+                    }
                 }
-            }
-        })
-    })
+            });
+        });
+    }
 }
 
-function showAllBombs(board) {
+function showAllBombs() {
     board.forEach(row => {
         row.forEach(squareObj => {
             if(squareObj.isBomb) {

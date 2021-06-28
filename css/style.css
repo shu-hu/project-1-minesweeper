@@ -17,8 +17,8 @@ body {
     --time-color: black;
     --flag-icon-color: black;
     --total-flags-color: black;
-    --restart-color: none;
-    --restart-bg-color: none;
+    --restart-color: black;
+    --restart-bg-color: orange;
     --sq-text-color: none;
     --flag-img-color: rgb(208, 24, 214);
     --mine-image-color: #31152f;
@@ -207,21 +207,16 @@ div.board {
     color: var(--mine-image-color);
 }
 
-ul > li {
-    text-align: left;
-    list-style-type: none;
-}
-
 .li-title {
     font-weight: bold;
     font-size: 18px;
 }
 
-#offcanvasExample{
+#offcanvasExample {
     background-color: var(--instruction-bg-color);
 }
 
-#offcanvasExampleLabel, ul > li {
+#offcanvasExampleLabel, .offcanvas-body {
     color: var(--instruction-text-color);
 }
 #btn-close-instruction {
