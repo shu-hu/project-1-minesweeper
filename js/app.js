@@ -37,13 +37,13 @@ function setMode(x) {
     console.log("hello")
     if (x === 1) {
         boardWidth = 5;
-        numBomb = 5;
+        numBomb = 4;
     } else if (x === 2) {
-        boardWidth = 8;
-        numBomb = 10;
+        boardWidth = 6;
+        numBomb = 8;
     } else if (x === 3) {
-        boardWidth = 10;
-        numBomb = 25;
+        boardWidth = 8;
+        numBomb = 15;
     }
     mainPageEl.setAttribute("hidden", "");
     gamePageEl.removeAttribute("hidden");
