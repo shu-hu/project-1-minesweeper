@@ -41,18 +41,22 @@
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasExampleLabel">Game Instruction</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button id="btn-close-instruction" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <div>
-                    Choose a level to start. 
-                    You are able to click any square on the board.
-                    If you click a square contains a bomb, you lose the game.
-                    If you click a square without bomb, then a number will display on the board.
-                    The number on the board represent how many bombs are adjacent to this square. 
-                    You are also able to right click a square to mark this square.
-                    The number of flags equals the total bombs in the board.
-                    To win the game you have to click all the safe squares with no bombs.
+                    <ul>
+                        <li class="li-title">How to Start?</li>
+                        <li>Choose a level to start game, then you are able to click any square on the board.</li>
+                        <li class="li-title">What happend after click?</li>
+                        <li>If you click a square contains a bomb, you lose the game.</li>
+                        <li>If you click a square without bomb, then a number will display on the board.</li>
+                        <li>The number on the board represent how many bombs are adjacent to this square.</li> 
+                        <li>You are also able to right click a square to mark this square.</li>
+                        <li>The number of flags equals the total bombs in the board.</li>
+                        <li class="li-title">How to Win?</li>
+                        <li>To win the game you have to click all the squares with no bombs.</li>
+                    </ul>
                 </div>
                 <div class="dropdown mt-3">
             </div>
