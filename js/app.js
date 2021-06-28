@@ -1,6 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
 
-
 /*-------------------------------- Variables --------------------------------*/
 let boardWidth , numBomb, flags, isWin, board, isLose;
 let isDefultTheme = true;
@@ -68,7 +67,6 @@ function createBoard() {
             squareEl.classList.add("sq");
             if (hasIndex(bombIdxs, i, j)) {
                 // bomb
-                // squareEl.style.backgroundColor = "white"
                 isBomb = true;
             }
             boardEl.append(squareEl);
@@ -104,10 +102,8 @@ function createBoard() {
                     if(squareObj.num !== 0 ) {
                         squareObj.element.innerHTML = squareObj.num;
                         squareObj.element.style.fontFamily = "'Fredoka One', cursive";
-                        // squareObj.isChecked = true;
                     } else {
                         const revealSafeSpots = getSafeSpots(squareObj, board, []);
-                        // console.log(revealSafeSpots);
                         revealSafeSpots.forEach(obj => {
                             // change color
                             obj.element.style.backgroundColor = "#118DF0";
@@ -115,17 +111,14 @@ function createBoard() {
                                 obj.element.innerHTML = obj.num;
                                 obj.element.style.fontFamily = "'Fredoka One', cursive";
                             }
-                            // obj.element.style.boxShadow = "inset 5px 3px 4px";
                             obj.isChecked = true;
                         });
                     }
                 } else {
                     // lose game
-                    // console.log(`game over`)
                     isLose = true;
                     showAllBombs();
                     render();
-                    // squareObj.element.style.backgroundColor = "yellow";
                 }
                 squareObj.isChecked = true;
                 checkWin();
@@ -134,7 +127,6 @@ function createBoard() {
             // handle right click
             squareObj.element.oncontextmenu = function(e) {
                 e.preventDefault();
-                // console.log("ok!")
                 addFlag(squareObj);
                 if (!isTimerStart) {
                     startTimer();
@@ -201,7 +193,6 @@ function addNumber(squareObj, board, boardWidth) {
     let count = 0;
     if (!squareObj.isBomb) {
         const neighborIdxs = getNeighborIdxs(squareObj, boardWidth);
-        // console.log(getNeighborIdxs(squareObj, boardWidth))
         neighborIdxs.forEach(e => {
             const neighbor = board[e[0]][e[1]];
             if (neighbor.isBomb) {
@@ -238,18 +229,9 @@ function addFlag(obj) {
 }
 
 function checkWin() {
-    // let foundBombs = 0;
     let allSafeSpotsChecked = boardWidth * boardWidth - numBomb;
     board.forEach(row => {
         row.forEach(square => {
-            // if(square.hasFlag && square.isBomb) {
-            //     foundBombs++;
-            // }
-            // if (foundBombs === numBomb ) {
-            //     console.log('You win!');
-            //     isWin = true;
-            //     render();
-            // }
             if (!square.isBomb && square.isChecked) {
                 allSafeSpotsChecked--;
             }
@@ -281,13 +263,13 @@ function render() {
     if(isWin) {
         clearInterval(timerIntervalId);
         timerIntervalId = null;
-        massageEl.innerHTML = `Congratulation! You Win in ${seconds} seconds!`;
+        massageEl.innerHTML = `Congratulations! You Won in ${seconds} seconds!`;
         massageEl.className = "animate__animated animate__bounce";
     }
     if(isLose) {
         clearInterval(timerIntervalId);
         timerIntervalId = null;
-        massageEl.innerHTML = `Sorry! You Lose!!!`;
+        massageEl.innerHTML = `Sorry! You Lost!!!`;
         massageEl.className = "animate__animated animate__backInLeft";
     }
 }
