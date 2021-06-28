@@ -1,12 +1,12 @@
 /*-------------------------------- Constants --------------------------------*/
 
 
-
 /*-------------------------------- Variables --------------------------------*/
 let boardWidth , numBomb, flags, isWin, board, isLose;
 let isDefultTheme = true;
-
-
+let timerIntervalId;
+let min, sec, seconds = 0;
+let isTimerStart = false;
 
 /*------------------------ Cached Element References ------------------------*/
 const boardEl = document.querySelector("div.board");
@@ -22,6 +22,7 @@ const massageEl = document.querySelector("#display-msg");
 const restartBtnEl = document.querySelector("#restart");
 const switchThemeEl = document.querySelector("#switch");
 const bodyEl = document.querySelector("body");
+const timerEl = document.getElementById('time');
 
 /*----------------------------- Event Listeners -----------------------------*/
 normalBtnEl.addEventListener('click', () => setMode(1));
@@ -92,6 +93,10 @@ function createBoard() {
 
             // handle left click
             squareObj.element.addEventListener('click', () => {
+                if (!isTimerStart) {
+                    startTimer();
+                }
+
                 if(squareObj.isChecked || squareObj.hasFlag) return;
                 if(isWin || isLose) return;
                 squareObj.element.style.backgroundColor = "#118DF0";
@@ -132,6 +137,9 @@ function createBoard() {
                 e.preventDefault();
                 // console.log("ok!")
                 addFlag(squareObj);
+                if (!isTimerStart) {
+                    startTimer();
+                }
             }
 
         })
@@ -261,17 +269,25 @@ function backToHome() {
     boardEl.innerHTML = "";
     massageEl.innerHTML = "";
     massageEl.className = "";
-    // massageEl.classList.remove("animate__animated animate__zoomInUp");
+    isTimerStart = false;
+    clearInterval(timerIntervalId);
+    seconds = 0;
+    timerIntervalId = null;
+    timerEl.innerHTML = "0:00";
     gamePageEl.setAttribute("hidden", "");
 }
 
 function render() {
     totalFlagsEl.innerHTML = `: ${numBomb}`;
     if(isWin) {
-        massageEl.innerHTML = `Congratulation! You Win!!!`;
+        clearInterval(timerIntervalId);
+        timerIntervalId = null;
+        massageEl.innerHTML = `Congratulation! You Win in ${seconds} seconds!`;
         massageEl.className = "animate__animated animate__bounce";
     }
     if(isLose) {
+        clearInterval(timerIntervalId);
+        timerIntervalId = null;
         massageEl.innerHTML = `Sorry! You Lose!!!`;
         massageEl.className = "animate__animated animate__backInLeft";
     }
@@ -282,6 +298,11 @@ function restartGame() {
     massageEl.innerHTML = "";
     massageEl.className = "";
     board = createBoard();
+    isTimerStart = false;
+    clearInterval(timerIntervalId);
+    seconds = 0;
+    timerIntervalId = null;
+    timerEl.innerHTML = "0:00";
 }
 
 function isSpaceMode() {
@@ -344,4 +365,28 @@ function showAllBombs(board) {
             }
         })
     })
+}
+
+function startTimer() {
+	if (timerIntervalId) {
+		seconds = 0;
+		clearInterval(timerIntervalId);
+	}
+	timerIntervalId = setInterval(tick, 1000);
+    isTimerStart = true;
+}
+
+function tick() {
+	seconds++;
+	display();
+}
+
+function display() {
+	min = Math.floor(seconds / 60);
+	sec = seconds % 60;
+	if (sec < 10) {
+		timerEl.innerHTML = `${min}:0${sec}`;
+	} else {
+		timerEl.innerHTML = `${min}:${sec}`;
+	}
 }

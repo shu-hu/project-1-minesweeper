@@ -13,6 +13,8 @@ body {
         inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
     --sq-border-radius: 50%;
     --sq-border: none;
+    --time-icon-color: black;
+    --time-color: black;
     --flag-icon-color: black;
     --total-flags-color: black;
     --restart-color: none;
@@ -30,6 +32,8 @@ body.space {
     /* --sq-box-shadow: 25px -25px 85px #ecf7b3, -25px 25px 85px #aebff7; */
     --sq-border-radius: none;
     --sq-border: 2px solid rgb(2, 2, 27);
+    --time-icon-color: yellow;
+    --time-color: yellow;
     --flag-icon-color: yellow;
     --total-flags-color: yellow;
     --restart-color: white;
@@ -150,14 +154,29 @@ div.board {
     right: 20px;
 }
 
+#time-icon {
+    float:inline-start;
+    font-size: 34px;
+    margin-right: 10px;
+    color: var(--time-icon-color);
+}
+
+#time {
+    padding-right: 60px;
+    font-size: 32px;
+    color: var(--time-color);
+}
+
 #flag-icon {
     /* color: black; */
+    /* padding-left: 20px; */
     color: var(--flag-icon-color);
     font-size: 30px;
 }
 
 #total-flags {
-    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 80px;
     font-size: 30px;
     font-weight: bold;
     color: var(--total-flags-color);
