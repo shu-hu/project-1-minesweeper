@@ -99,6 +99,7 @@ function createBoard() {
                 if (!squareObj.isBomb) {
                     if(squareObj.num !== 0 ) {
                         squareObj.element.innerHTML = squareObj.num;
+                        squareObj.element.style.fontFamily = "'Fredoka One', cursive";
                         // squareObj.isChecked = true;
                     } else {
                         const revealSafeSpots = getSafeSpots(squareObj, board, []);
@@ -108,6 +109,7 @@ function createBoard() {
                             obj.element.style.backgroundColor = "#118DF0";
                             if (obj.num !== 0) {
                                 obj.element.innerHTML = obj.num;
+                                obj.element.style.fontFamily = "'Fredoka One', cursive";
                             }
                             // obj.element.style.boxShadow = "inset 5px 3px 4px";
                             obj.isChecked = true;
@@ -258,6 +260,7 @@ function backToHome() {
     mainPageEl.removeAttribute("hidden");
     boardEl.innerHTML = "";
     massageEl.innerHTML = "";
+    massageEl.className = "";
     // massageEl.classList.remove("animate__animated animate__zoomInUp");
     gamePageEl.setAttribute("hidden", "");
 }
@@ -266,17 +269,18 @@ function render() {
     totalFlagsEl.innerHTML = `: ${numBomb}`;
     if(isWin) {
         massageEl.innerHTML = `Congratulation! You Win!!!`;
-        massageEl.className = "animate__animated animate__zoomInUp";
+        massageEl.className = "animate__animated animate__bounce";
     }
     if(isLose) {
         massageEl.innerHTML = `Sorry! You Lose!!!`;
-        massageEl.className = "animate__animated animate__zoomInUp";
+        massageEl.className = "animate__animated animate__backInLeft";
     }
 }
 
 function restartGame() {
     boardEl.innerHTML = "";
     massageEl.innerHTML = "";
+    massageEl.className = "";
     board = createBoard();
 }
 
