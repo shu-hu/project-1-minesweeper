@@ -1,4 +1,4 @@
-# <Minesweeper>
+## <Minesweeper>
 
 The first computer game I ever played is Minesweeper, and I'm quite familiar with the rule, so I chose this game as the unit one project.
 
