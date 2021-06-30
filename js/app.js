@@ -1,7 +1,5 @@
-/*-------------------------------- Constants --------------------------------*/
-
 /*-------------------------------- Variables --------------------------------*/
-let boardWidth , numBomb, flags, isWin, board, isLose;
+let boardWidth, numBomb, flags, isWin, board, isLose;
 let isDefultTheme = true;
 let timerIntervalId;
 let min, sec, seconds = 0;
@@ -62,7 +60,6 @@ function createBoard() {
             let isChecked = false;
             let hasFlag = false;
             const squareEl = document.createElement('div');
-            squareEl.setAttribute('id', `${i}-${j}`);
             // add class name
             squareEl.classList.add("sq");
             if (hasIndex(bombIdxs, i, j)) {
@@ -87,17 +84,14 @@ function createBoard() {
     board.forEach(row => {
         row.forEach(squareObj => {
             addNumber(squareObj, board, boardWidth);
-
             // handle left click
             squareObj.element.addEventListener('click', () => {
                 if (!isTimerStart) {
                     startTimer();
                 }
-
                 if(squareObj.isChecked || squareObj.hasFlag) return;
                 if(isWin || isLose) return;
                 squareObj.element.style.backgroundColor = "#118DF0";
-                
                 if (!squareObj.isBomb) {
                     if(squareObj.num !== 0 ) {
                         squareObj.element.innerHTML = squareObj.num;
@@ -105,7 +99,6 @@ function createBoard() {
                     } else {
                         const revealSafeSpots = getSafeSpots(squareObj, board, []);
                         revealSafeSpots.forEach(obj => {
-                            // change color
                             obj.element.style.backgroundColor = "#118DF0";
                             if (obj.num !== 0) {
                                 obj.element.innerHTML = obj.num;
@@ -115,7 +108,6 @@ function createBoard() {
                         });
                     }
                 } else {
-                    // lose game
                     isLose = true;
                     showAllBombs();
                     render();
@@ -123,7 +115,6 @@ function createBoard() {
                 squareObj.isChecked = true;
                 checkWin();
             });
-
             // handle right click
             squareObj.element.oncontextmenu = function(e) {
                 e.preventDefault();
@@ -132,7 +123,6 @@ function createBoard() {
                     startTimer();
                 }
             }
-
         })
     })
     boardEl.style.setProperty("--size", boardWidth);
