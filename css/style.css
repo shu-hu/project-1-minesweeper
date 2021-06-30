@@ -222,3 +222,8 @@ div.board {
 #btn-close-instruction {
     background-color: rgb(250, 54, 4);
 }
+
+#flexSwitchCheckChecked {
+    background-color:rgb(93, 220, 252);
+    font-size: 20px;
+}
