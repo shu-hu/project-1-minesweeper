@@ -233,4 +233,8 @@ div.board {
         font-size: 2.8rem;
         padding-top: 1rem;
     }
+    #time-icon, #time, #flag-icon, #total-flags {
+        font-size: 1.2rem;
+        margin-top: 3rem;
+    }
 }
