@@ -20,10 +20,10 @@ You also can find instructions by clicking the **how to play** button in the gam
 4) Declare a function to count the number of bombs in the surrounding area of each square, and display numbers to those safe squares.
 
 5) Upon loading, the app should:
-	5.1) Call a function to create board
-	5.2) Render those values to the page
-	5.3) Wait for the user to start the game by clicking a square
-    5.4) once the game starts, define a variable to count the time until game over
+	5.1 Call a function to create board.
+	5.2 Render those values to the page.
+	5.3 Wait for the user to start the game by clicking a square.
+	5.4 once the game starts, define a variable to count the time until game over.
 
 6) Create a function to let the user be able to add Flag with right click
 
