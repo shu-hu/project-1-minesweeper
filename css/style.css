@@ -228,7 +228,7 @@ div.board {
     font-size: 18px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     #title {
         font-size: 2.8rem;
         padding-top: 1rem;
