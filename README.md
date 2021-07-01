@@ -1,15 +1,29 @@
 ## Minesweeper
+Minesweeper is a classic Microsoft game, which released in 1990. The goal of Minesweeper is to uncover all the squares on a board that do not contain mines. The reason I chose this game as the unit one project is because that was the first computer game I played, and I'm quite familiar with the rules.
 
-The first computer game I ever played is Minesweeper, and I'm quite familiar with the rule, so I chose this game as the unit one project.
-
-## Link To Play
-https://shu-minesweeper-game.netlify.app/
+## Getting Started
+[You can play game here](https://shu-minesweeper-game.netlify.app/)
 
 ## Game Images
-![alt text](https://i.imgur.com/0f1UQh3.png)
-![alt text](https://i.imgur.com/b9RUGNg.png)
-![alt text](https://i.imgur.com/phURjcC.png)
-![alt text](https://i.imgur.com/VgP7PdH.png)
+Light Mode - Ocean Theme
+------------------------
+![alt text](https://i.imgur.com/R1MVsKQ.png)
+![alt text](https://i.imgur.com/KWAbPrq.png)
+
+Dark Mode - Space Theme
+-----------------------
+![alt text](https://i.imgur.com/6Eo8xWD.png)
+![alt text](https://i.imgur.com/AgGtreS.png)
 
 ## Technologies Used
-JavaScript, HTML, CSS
+- JavaScript
+- HTML
+- CSS
+- Bootstrap
+- Font-Awesome
+- Google-Fonts
+
+## Next Steps
+- add more animations
+- add a custom board feature
+- create database to keep records of the fastest won
