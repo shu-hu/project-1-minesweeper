@@ -1,3 +1,9 @@
+/*-------------------------------- Constants --------------------------------*/
+const clickSound =  new Audio('../audio/click.wav');
+const flagSound =  new Audio('../audio/flag.wav');
+const winSound =  new Audio('../audio/win.wav');
+const loseSound =  new Audio('../audio/lose.wav');
+
 /*-------------------------------- Variables --------------------------------*/
 let boardWidth, numBomb, flags, isWin, board, isLose;
 let isDefultTheme = true;
@@ -91,6 +97,10 @@ function createBoard() {
                 }
                 if(squareObj.isChecked || squareObj.hasFlag) return;
                 if(isWin || isLose) return;
+                clickSound.volume = 0.2;
+                setTimeout(function(){
+                    clickSound.play();
+                }, 0);
                 squareObj.element.style.backgroundColor = "#118DF0";
                 if (!squareObj.isBomb) {
                     if(squareObj.num !== 0 ) {
@@ -118,6 +128,10 @@ function createBoard() {
             // handle right click
             squareObj.element.oncontextmenu = function(e) {
                 e.preventDefault();
+                flagSound.volume = 0.15;
+                setTimeout(function(){
+                    flagSound.play();
+                }, 0);
                 addFlag(squareObj);
                 if (!isTimerStart) {
                     startTimer();
@@ -226,7 +240,6 @@ function checkWin() {
                 allSafeSpotsChecked--;
             }
             if (allSafeSpotsChecked === 0) {
-                console.log('You win!!!');
                 isWin = true;
                 render();
             }
@@ -253,12 +266,20 @@ function render() {
     if(isWin) {
         clearInterval(timerIntervalId);
         timerIntervalId = null;
+        winSound.volume = 0.1;
+        setTimeout(function(){
+            winSound.play();
+        }, 0);
         massageEl.innerHTML = `Congratulations! You Won in ${seconds} seconds!`;
         massageEl.className = "animate__animated animate__bounce";
     }
     if(isLose) {
         clearInterval(timerIntervalId);
         timerIntervalId = null;
+        loseSound.volume = 0.1;
+        setTimeout(function(){
+            loseSound.play();
+        }, 0);
         massageEl.innerHTML = `Sorry! You Lost!!!`;
         massageEl.className = "animate__animated animate__backInLeft";
     }
